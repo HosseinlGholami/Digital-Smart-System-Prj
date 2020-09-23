@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<data>
+  <loop>false</loop>
+  <repeat_times>1</repeat_times>
+  <repeat_period>500</repeat_period>
+  <frames_list>
+    <frame name="ZDO-Network Address Request">
+      <payload>7E001E110000124B0013568F89FFFE00000000000000000113568F8900124B000034</payload>
+    </frame>
+    <frame name="ZDO-Node Descriptor Request">
+      <payload>7E0017110100124B0013568F89A7AB000000020000000001ABA768</payload>
+    </frame>
+    <frame name="ZDO-Active Endpoints Request">
+      <payload>7E0017110100124B0013568F89A7AB000000050000000001ABA765</payload>
+    </frame>
+    <frame name="ZDO-Simple Descriptor Request">
+      <payload>7E0018110100124B0013568F89A7AB000000040000000001ABA70165</payload>
+    </frame>
+    <frame name="ZCL-Window Covering up">
+      <payload>7E0017110100124B0013568F89A7AB0001010201040000010200B1</payload>
+    </frame>
+    <frame name="ZCL-Window Covering down">
+      <payload>7E0017110100124B0013568F89A7AB0001010201040000010301AF</payload>
+    </frame>
+    <frame name="ZCL-Window Covering stop">
+      <payload>7E0017110100124B0013568F89A7AB0001010201040000010402AD</payload>
+    </frame>
+  </frames_list>
+</data>

@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<!-- saved from url=(0081)http://jensd.be/764/network/configure-a-lora-device-based-on-the-microchip-rn2483 -->
+<html lang="en-US"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width">
+<title>Configure a LoRa device based on the Microchip RN2483 | Jensd's I/O buffer</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="stylesheet" type="text/css" media="all" href="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/style.css">
+<link rel="pingback" href="http://jensd.be/xmlrpc.php">
+<!--[if lt IE 9]>
+<script src="http://jensd.be/wp-content/themes/twentyeleven/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+<link rel="dns-prefetch" href="http://platform-api.sharethis.com/">
+<link rel="dns-prefetch" href="http://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="Jensd&#39;s I/O buffer » Feed" href="http://jensd.be/feed">
+<link rel="alternate" type="application/rss+xml" title="Jensd&#39;s I/O buffer » Comments Feed" href="http://jensd.be/comments/feed">
+<link rel="alternate" type="application/rss+xml" title="Jensd&#39;s I/O buffer » Configure a LoRa device based on the Microchip RN2483 Comments Feed" href="http://jensd.be/764/network/configure-a-lora-device-based-on-the-microchip-rn2483/feed">
+		<script async="" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/analytics.js.download"></script><script src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/osd.js.download"></script><script src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/ca-pub-9938673978146131.js.download"></script><script async="" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/598194f0f887d10011e435b6.js.download"></script><script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/jensd.be\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.10"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/wp-emoji-release.min.js.download" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="crayon-css" href="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/crayon.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-theme-dark-terminal-copy-css" href="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/dark-terminal-copy.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-font-monospace-css" href="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/monospace.css" type="text/css" media="all">
+<link rel="stylesheet" id="wpstatistics-css-css" href="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/frontend.css" type="text/css" media="all">
+<link rel="stylesheet" id="easy_table_style-css" href="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/style(1).css" type="text/css" media="all">
+<script type="text/javascript" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/jquery.js.download"></script>
+<script type="text/javascript" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/jquery-migrate.min.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"_2.7.2_beta","is_admin":"0","ajaxurl":"http:\/\/jensd.be\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/crayon.min.js.download"></script>
+<script type="text/javascript" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/sharethis.js.download"></script>
+<link rel="https://api.w.org/" href="http://jensd.be/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://jensd.be/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://jensd.be/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Install the Zabbix 3.0.0 beta from source on CentOS or RHEL" href="http://jensd.be/731/linux/install-the-zabbix-3-0-0-beta-from-source-on-centos-or-rhel">
+<link rel="next" title="Configure the Adeunis RF LoraWAN Demonstrator" href="http://jensd.be/774/network/configure-the-adeunis-rf-lorawan-demonstrator">
+<meta name="generator" content="WordPress 4.9.10">
+<link rel="canonical" href="http://jensd.be/764/network/configure-a-lora-device-based-on-the-microchip-rn2483">
+<link rel="shortlink" href="http://jensd.be/?p=764">
+<link rel="alternate" type="application/json+oembed" href="http://jensd.be/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fjensd.be%2F764%2Fnetwork%2Fconfigure-a-lora-device-based-on-the-microchip-rn2483">
+<link rel="alternate" type="text/xml+oembed" href="http://jensd.be/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fjensd.be%2F764%2Fnetwork%2Fconfigure-a-lora-device-based-on-the-microchip-rn2483&amp;format=xml">
+
+<script type="text/javascript" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/widgets.js.download"></script>
+		<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+		<link rel="preload" href="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/f(4).txt" as="script"><script type="text/javascript" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/f(4).txt"></script><link rel="preload" href="https://pagead2.googlesyndication.com/pagead/js/r20190715/r20190131/show_ads_impl.js" as="script"><script charset="utf-8" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/button.509719336ca39171c37a321231ccaf83.js.download"></script></head>
+
+<body class="post-template-default single single-post postid-764 single-format-standard single-author singular two-column right-sidebar">
+<div id="page" class="hfeed">
+	<header id="branding" role="banner">
+			<hgroup>
+				<h1 id="site-title"><span><a href="http://jensd.be/" rel="home">Jensd's I/O buffer</a></span></h1>
+				<h2 id="site-description">random technotes…</h2>
+			</hgroup>
+
+						<a href="http://jensd.be/">
+									<img src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/cropped-cropped-technology.jpg" width="1000" height="287" alt="Jensd&#39;s I/O buffer">
+							</a>
+			
+								<form method="get" id="searchform" action="http://jensd.be/">
+		<label for="s" class="assistive-text">Search</label>
+		<input type="text" class="field" name="s" id="s" placeholder="Search">
+		<input type="submit" class="submit" name="submit" id="searchsubmit" value="Search">
+	</form>
+			
+			<nav id="access" role="navigation">
+				<h3 class="assistive-text">Main menu</h3>
+								<div class="skip-link"><a class="assistive-text" href="http://jensd.be/764/network/configure-a-lora-device-based-on-the-microchip-rn2483#content">Skip to primary content</a></div>
+												<div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-5" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5"><a href="http://www.jensd.be/">Home</a></li>
+<li id="menu-item-6" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6"><a href="http://jensd.be/about">About me</a></li>
+</ul></div>			</nav><!-- #access -->
+	</header><!-- #branding -->
+
+
+	<div id="main">
+
+		<div id="primary">
+			<div id="content" role="main">
+
+				
+					<nav id="nav-single">
+						<h3 class="assistive-text">Post navigation</h3>
+						<span class="nav-previous"><a href="http://jensd.be/731/linux/install-the-zabbix-3-0-0-beta-from-source-on-centos-or-rhel" rel="prev"><span class="meta-nav">←</span> Previous</a></span>
+						<span class="nav-next"><a href="http://jensd.be/774/network/configure-the-adeunis-rf-lorawan-demonstrator" rel="next">Next <span class="meta-nav">→</span></a></span>
+					</nav><!-- #nav-single -->
+
+					
+<article id="post-764" class="post-764 post type-post status-publish format-standard hentry category-actility category-lora category-network">
+	<header class="entry-header">
+		<h1 class="entry-title">Configure a LoRa device based on the Microchip RN2483</h1>
+
+				<div class="entry-meta">
+			<span class="sep">Posted on </span><a href="http://jensd.be/764/network/configure-a-lora-device-based-on-the-microchip-rn2483" title="14:44" rel="bookmark"><time class="entry-date" datetime="2016-12-27T14:44:08+00:00">27/12/2016</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="http://jensd.be/author/jensd" title="View all posts by jensd" rel="author">jensd</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p><iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 60px; height: 20px;" title="Twitter Tweet Button" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/tweet_button.940e1bc455d9af25d6ec2f14e90d0d6c.en.html" data-url="http://jensd.be/764/network/configure-a-lora-device-based-on-the-microchip-rn2483"></iframe></p>
+<!-- Quick Adsense WordPress Plugin: http://quickadsense.com/ -->
+<div style="float: none; margin:10px 0 10px 0; text-align:center;">
+<script async="" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/f(5).txt"></script>
+<!-- lang2 -->
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-9938673978146131" data-ad-slot="1622653003" data-adsbygoogle-status="done"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent;"><ins id="aswift_0_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent;"><iframe width="728" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0px;width:728px;height:90px;" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/saved_resource(2).html"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<p>The Microchip RN2483 is a LoRa class A module widely available. In a normal, end-user scenario, LoRa endpoints (or devices/sensors) come with preconfigured parameters but before the module can be used, it needs to be configured with those parameters to use it in the LoRa network. What parameters to configure depends on the type of activation. For this post, I’ve been using the RN2483 based PICtail test-board.</p>
+<p><span id="more-764"></span></p>
+<p>When using a LoRa test-device, the parameters need to be set manually before the device can send data. How to set these parameters completely depends on the type of chip that is used in the device. Most of the times this information can be found in the documentation but I found it often difficult to translate the raw info to hands-on usable information so I decided to figure everything out and write a post about it.</p>
+<p>After configuring the&nbsp;necessary parameters in the device, they need to match with the device added to the network server in your LoRa network before it will accept data sent by this device. For this post, I will use Actility TPW (ThingPark Wireless) Device Manager</p>
+<h2>About the Microchip RN2483</h2>
+<p>The RN2483 is a fully-certified 433/868 MHz module based on wireless LoRa technology. The RN2483 utilizes a unique spread spectrum modulation within the Sub-GHz band to enable long range, low power, and high network capacity. Configuration is done with ASCII command interface over UART. The test board RN2483 PICTail contains a usb port with integrated USB to serial.</p>
+<h2>Equipment list</h2>
+<p>Before you are able to configure the RN2483 you need the following:</p>
+<ul>
+<li>RN2483 PICTail<br>
+<img class="aligncenter size-full wp-image-765" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/rn2483.png" alt="rn2483" width="606" height="661" srcset="http://jensd.be/wp-content/uploads/rn2483.png 606w, http://jensd.be/wp-content/uploads/rn2483-275x300.png 275w" sizes="(max-width: 606px) 100vw, 606px"></li>
+<li>USB cable</li>
+<li>Terminal emulator to send the commands to the test device</li>
+<li>LoRa gateway in the range of the RN2483 device</li>
+<li>Network server (Actility TPW)</li>
+</ul>
+<h2></h2>
+<h2>Network diagram</h2>
+<p><img class="size-full wp-image-775 alignnone" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/rn2483-diagram.png" alt="" width="797" height="445" srcset="http://jensd.be/wp-content/uploads/rn2483-diagram.png 797w, http://jensd.be/wp-content/uploads/rn2483-diagram-300x168.png 300w, http://jensd.be/wp-content/uploads/rn2483-diagram-768x429.png 768w, http://jensd.be/wp-content/uploads/rn2483-diagram-500x279.png 500w" sizes="(max-width: 797px) 100vw, 797px"></p>
+<h2>Connection to the RN2483</h2>
+<ol>
+<li>Connect the module to a PC. The device will create a new serial device (COMx on Windows and&nbsp;/dev/ttyACMx on Linux)</li>
+<li>Open a terminal session to the serial device/port with the following parameters: bitrate: 57600, 8 bits, no parity, 1 stop bit, no flow control.<br>
+Commands need to be terminated with &lt;CR&gt;&lt;LF&gt; and the device does not echo back send commands by default.<br>
+After connecting to the device, you can test the communication by sending “sys get ver” which should return the current FW version of the board.<br>
+For example:<br>
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5d32daa68b775045497402" class="crayon-syntax crayon-theme-dark-terminal-copy crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: -6px; margin-bottom: 12px; margin-left: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="margin-left: -18px;">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5d32daa68b775045497402-1">1</div><div class="crayon-num" data-line="crayon-5d32daa68b775045497402-2">2</div><div class="crayon-num" data-line="crayon-5d32daa68b775045497402-3">3</div><div class="crayon-num" data-line="crayon-5d32daa68b775045497402-4">4</div><div class="crayon-num" data-line="crayon-5d32daa68b775045497402-5">5</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d32daa68b775045497402-1"><span class="crayon-sy">[</span>jedepuyd<span class="crayon-sy">@</span>testdev<span class="crayon-h"> </span><span class="crayon-o">~</span><span class="crayon-sy">]</span><span class="crayon-sy">$</span><span class="crayon-h"> </span>python<span class="crayon-e "> -m</span><span class="crayon-h"> </span>serial<span class="crayon-sy">.</span>tools<span class="crayon-sy">.</span>miniterm<span class="crayon-e "> -e</span><span class="crayon-e "> -p</span><span class="crayon-h"> </span><span class="crayon-o">/</span>dev<span class="crayon-o">/</span>ttyACM0<span class="crayon-e "> -b</span><span class="crayon-h"> </span>57600</div><div class="crayon-line" id="crayon-5d32daa68b775045497402-2"><span class="crayon-o">--</span><span class="crayon-o">-</span><span class="crayon-h"> </span>Miniterm<span class="crayon-h"> </span>on<span class="crayon-h"> </span><span class="crayon-o">/</span>dev<span class="crayon-o">/</span>ttyACM0<span class="crayon-o">:</span><span class="crayon-h"> </span>57600<span class="crayon-sy">,</span>8<span class="crayon-sy">,</span>N<span class="crayon-sy">,</span>1<span class="crayon-h"> </span><span class="crayon-o">--</span><span class="crayon-o">-</span></div><div class="crayon-line" id="crayon-5d32daa68b775045497402-3"><span class="crayon-o">--</span><span class="crayon-o">-</span><span class="crayon-h"> </span>Quit<span class="crayon-o">:</span><span class="crayon-h"> </span>Ctrl<span class="crayon-o">+</span><span class="crayon-sy">]</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-o">|</span><span class="crayon-h">&nbsp;&nbsp;</span>Menu<span class="crayon-o">:</span><span class="crayon-h"> </span>Ctrl<span class="crayon-o">+</span>T<span class="crayon-h"> </span><span class="crayon-o">|</span><span class="crayon-h"> </span><span class="crayon-r">Help</span><span class="crayon-o">:</span><span class="crayon-h"> </span>Ctrl<span class="crayon-o">+</span>T<span class="crayon-h"> </span>followed<span class="crayon-h"> </span>by<span class="crayon-h"> </span>Ctrl<span class="crayon-o">+</span>H<span class="crayon-h"> </span><span class="crayon-o">--</span><span class="crayon-o">-</span></div><div class="crayon-line" id="crayon-5d32daa68b775045497402-4"><span class="crayon-r">sys</span><span class="crayon-h"> </span>get<span class="crayon-h"> </span><span class="crayon-r">ver</span></div><div class="crayon-line" id="crayon-5d32daa68b775045497402-5"><span class="crayon-r ">RN2483</span><span class="crayon-h"> </span>1<span class="crayon-sy">.</span>0<span class="crayon-sy">.</span>1<span class="crayon-h"> </span>Dec<span class="crayon-h"> </span>15<span class="crayon-h"> </span>2015<span class="crayon-h"> </span>09<span class="crayon-o">:</span>36<span class="crayon-o">:</span>30</div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0016 seconds] -->
+
+</li>
+<li>After you have ensured that you can communicate with the device, you can start the configuration.</li>
+</ol>
+<h2></h2>
+<h2>Configure the device for ABP</h2>
+<ol>
+<li>Get the hwEUI (physical&nbsp;address) of the module<br>
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5d32daa68b783241123548" class="crayon-syntax crayon-theme-dark-terminal-copy crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: -6px; margin-bottom: 12px; margin-left: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="margin-left: -18px;">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5d32daa68b783241123548-1">1</div><div class="crayon-num" data-line="crayon-5d32daa68b783241123548-2">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d32daa68b783241123548-1"><span class="crayon-r">sys</span><span class="crayon-h"> </span>get<span class="crayon-h"> </span>hweui</div><div class="crayon-line" id="crayon-5d32daa68b783241123548-2">0004A30B001B4D55</div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+
+</li>
+<li>Set the NwkSKey:<br>
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5d32daa68b787498456158" class="crayon-syntax crayon-theme-dark-terminal-copy crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: -6px; margin-bottom: 12px; margin-left: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="margin-left: -18px;">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5d32daa68b787498456158-1">1</div><div class="crayon-num" data-line="crayon-5d32daa68b787498456158-2">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d32daa68b787498456158-1"><span class="crayon-r ">mac</span><span class="crayon-h"> </span><span class="crayon-k">set</span><span class="crayon-h"> </span>nwkskey<span class="crayon-h"> </span>12345678123456781234567812345678</div><div class="crayon-line" id="crayon-5d32daa68b787498456158-2"><span class="crayon-r ">ok</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+
+</li>
+<li>Set the AppSKey<br>
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5d32daa68b78a032656499" class="crayon-syntax crayon-theme-dark-terminal-copy crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: -6px; margin-bottom: 12px; margin-left: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="margin-left: -18px;">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5d32daa68b78a032656499-1">1</div><div class="crayon-num" data-line="crayon-5d32daa68b78a032656499-2">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d32daa68b78a032656499-1"><span class="crayon-r ">mac</span><span class="crayon-h"> </span><span class="crayon-k">set</span><span class="crayon-h"> </span>appskey<span class="crayon-h"> </span>12345678123456781234567812345678</div><div class="crayon-line" id="crayon-5d32daa68b78a032656499-2"><span class="crayon-r ">ok</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+
+</li>
+<li>Set the DevAddr:<br>
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5d32daa68b78d442259934" class="crayon-syntax crayon-theme-dark-terminal-copy crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: -6px; margin-bottom: 12px; margin-left: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="margin-left: -18px;">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5d32daa68b78d442259934-1">1</div><div class="crayon-num" data-line="crayon-5d32daa68b78d442259934-2">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d32daa68b78d442259934-1"><span class="crayon-r ">mac</span><span class="crayon-h"> </span><span class="crayon-k">set</span><span class="crayon-h"> </span>devaddr<span class="crayon-h"> </span>001B4D55</div><div class="crayon-line" id="crayon-5d32daa68b78d442259934-2"><span class="crayon-r ">ok</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+
+</li>
+<li>(optionally) Turn on ADR (Adaptive Data Rate):<br>
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5d32daa68b790714310033" class="crayon-syntax crayon-theme-dark-terminal-copy crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: -6px; margin-bottom: 12px; margin-left: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="margin-left: -18px;">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5d32daa68b790714310033-1">1</div><div class="crayon-num" data-line="crayon-5d32daa68b790714310033-2">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d32daa68b790714310033-1"><span class="crayon-r ">mac</span><span class="crayon-h"> </span><span class="crayon-k">set</span><span class="crayon-h"> </span>adr<span class="crayon-h"> </span>on</div><div class="crayon-line" id="crayon-5d32daa68b790714310033-2"><span class="crayon-r ">ok</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+
+</li>
+<li>(optionally) Set the transmit power:<br>
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5d32daa68b794766760838" class="crayon-syntax crayon-theme-dark-terminal-copy crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: -6px; margin-bottom: 12px; margin-left: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="margin-left: -18px;">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5d32daa68b794766760838-1">1</div><div class="crayon-num" data-line="crayon-5d32daa68b794766760838-2">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d32daa68b794766760838-1"><span class="crayon-r ">radio</span><span class="crayon-h"> </span><span class="crayon-k">set</span><span class="crayon-h"> </span>pwr<span class="crayon-h"> </span>14</div><div class="crayon-line" id="crayon-5d32daa68b794766760838-2"><span class="crayon-r ">ok</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+
+</li>
+<li>Save the settings in the device:<br>
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5d32daa68b797022312448" class="crayon-syntax crayon-theme-dark-terminal-copy crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: -6px; margin-bottom: 12px; margin-left: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="margin-left: -18px;">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5d32daa68b797022312448-1">1</div><div class="crayon-num" data-line="crayon-5d32daa68b797022312448-2">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d32daa68b797022312448-1"><span class="crayon-r ">mac</span><span class="crayon-h"> </span>save</div><div class="crayon-line" id="crayon-5d32daa68b797022312448-2"><span class="crayon-r ">ok</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+
+</li>
+</ol>
+<h2></h2>
+<h2>Configure the device for OTAA</h2>
+<ol>
+<li>Get the hwEUI (physical&nbsp;address) of the module<br>
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5d32daa68b79a817312445" class="crayon-syntax crayon-theme-dark-terminal-copy crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: -6px; margin-bottom: 12px; margin-left: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="margin-left: -18px;">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5d32daa68b79a817312445-1">1</div><div class="crayon-num" data-line="crayon-5d32daa68b79a817312445-2">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d32daa68b79a817312445-1"><span class="crayon-r">sys</span><span class="crayon-h"> </span>get<span class="crayon-h"> </span>hweui</div><div class="crayon-line" id="crayon-5d32daa68b79a817312445-2">0004A30B001B4D55</div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+
+</li>
+<li>Set the AppKey:<br>
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5d32daa68b79d423601279" class="crayon-syntax crayon-theme-dark-terminal-copy crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: -6px; margin-bottom: 12px; margin-left: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="margin-left: -18px;">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5d32daa68b79d423601279-1">1</div><div class="crayon-num" data-line="crayon-5d32daa68b79d423601279-2">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d32daa68b79d423601279-1"><span class="crayon-r ">mac</span><span class="crayon-h"> </span><span class="crayon-k">set</span><span class="crayon-h"> </span>appkey<span class="crayon-h"> </span>00112233445566778899AABBCCDDEEFF</div><div class="crayon-line" id="crayon-5d32daa68b79d423601279-2"><span class="crayon-r ">ok</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+
+</li>
+<li>Set the AppEUI:<br>
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5d32daa68b7a0869697069" class="crayon-syntax crayon-theme-dark-terminal-copy crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: -6px; margin-bottom: 12px; margin-left: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="margin-left: -18px;">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5d32daa68b7a0869697069-1">1</div><div class="crayon-num" data-line="crayon-5d32daa68b7a0869697069-2">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d32daa68b7a0869697069-1"><span class="crayon-r ">mac</span><span class="crayon-h"> </span><span class="crayon-k">set</span><span class="crayon-h"> </span>appeui<span class="crayon-h"> </span>FEDCBA9876543210</div><div class="crayon-line" id="crayon-5d32daa68b7a0869697069-2"><span class="crayon-r ">ok</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+
+</li>
+<li>Save the settings in the device:<br>
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5d32daa68b7a3255161108" class="crayon-syntax crayon-theme-dark-terminal-copy crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: -6px; margin-bottom: 12px; margin-left: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="margin-left: -18px;">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5d32daa68b7a3255161108-1">1</div><div class="crayon-num" data-line="crayon-5d32daa68b7a3255161108-2">2</div><div class="crayon-num" data-line="crayon-5d32daa68b7a3255161108-3">3</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d32daa68b7a3255161108-1"><span class="crayon-r ">mac</span><span class="crayon-h"> </span>save</div><div class="crayon-line" id="crayon-5d32daa68b7a3255161108-2"><span class="crayon-r ">ok</span></div><div class="crayon-line" id="crayon-5d32daa68b7a3255161108-3">&nbsp;</div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+
+</li>
+</ol>
+<h2></h2>
+<h2>Add the device to the network server (Actility TPW Device Manager) for ABP</h2>
+<ol>
+<li>Log in to the TPW Device Manager</li>
+<li>In the “Add Devices” section, click “Create”:<br>
+<img class="size-full wp-image-766 alignnone" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/actadd.png" alt="actadd" width="180" height="105"></li>
+<li>Fill in the required information as configured the device above for ABP:<br>
+<img class="size-full wp-image-767 alignnone" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/actabp1.png" alt="actabp1" width="615" height="725" srcset="http://jensd.be/wp-content/uploads/actabp1.png 615w, http://jensd.be/wp-content/uploads/actabp1-254x300.png 254w" sizes="(max-width: 615px) 100vw, 615px"></li>
+<li>Click “Create”</li>
+</ol>
+<h2></h2>
+<h2>Add the device to the Actility TPW Device Manager for OTAA</h2>
+<ol>
+<li>Log in to the TPW Device Manager</li>
+<li>In the “Add Devices” section, click “Create”:<br>
+<img class="size-full wp-image-766 alignnone" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/actadd.png" alt="actadd" width="180" height="105"></li>
+<li>Fill in the required information as configured the device above for OTAA:<br>
+<img class="size-full wp-image-768 alignnone" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/actotaa1.png" alt="actotaa1" width="616" height="624" srcset="http://jensd.be/wp-content/uploads/actotaa1.png 616w, http://jensd.be/wp-content/uploads/actotaa1-296x300.png 296w" sizes="(max-width: 616px) 100vw, 616px"></li>
+<li>Click “Create”</li>
+</ol>
+<h2>Join with ABP</h2>
+<p>Although there is no real join process when using ABP, you need to tell the device that it is using ABP and not OTAA:</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5d32daa68b7a8713138139" class="crayon-syntax crayon-theme-dark-terminal-copy crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: -6px; margin-bottom: 12px; margin-left: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="margin-left: -18px;">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5d32daa68b7a8713138139-1">1</div><div class="crayon-num" data-line="crayon-5d32daa68b7a8713138139-2">2</div><div class="crayon-num" data-line="crayon-5d32daa68b7a8713138139-3">3</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d32daa68b7a8713138139-1"><span class="crayon-r ">mac</span><span class="crayon-h"> </span><span class="crayon-r">join</span><span class="crayon-h"> </span>abp</div><div class="crayon-line" id="crayon-5d32daa68b7a8713138139-2"><span class="crayon-r ">ok</span></div><div class="crayon-line" id="crayon-5d32daa68b7a8713138139-3"><span class="crayon-r ">accepted</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p></p>
+<h4></h4>
+<h2>Join with OTAA</h2>
+<p>For OTAA, there is a real join process and you require the network server to acknowledge your join before you will be able to send data:</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5d32daa68b7ad762250654" class="crayon-syntax crayon-theme-dark-terminal-copy crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: -6px; margin-bottom: 12px; margin-left: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="margin-left: -18px;">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5d32daa68b7ad762250654-1">1</div><div class="crayon-num" data-line="crayon-5d32daa68b7ad762250654-2">2</div><div class="crayon-num" data-line="crayon-5d32daa68b7ad762250654-3">3</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d32daa68b7ad762250654-1"><span class="crayon-r ">mac</span><span class="crayon-h"> </span><span class="crayon-r">join</span><span class="crayon-h"> </span>otaa</div><div class="crayon-line" id="crayon-5d32daa68b7ad762250654-2"><span class="crayon-r ">ok</span></div><div class="crayon-line" id="crayon-5d32daa68b7ad762250654-3"><span class="crayon-r ">accepted</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p></p>
+<h2></h2>
+<h2>Send data</h2>
+<p>There are two ways to send data with LoRa: confirmed (which will be confirmed by a downlink frame: like TCP) and unconfirmed (no confirmation: like UDP).</p>
+<p>The format of sending data for RN2483 is as follows:<br>
+mac tx &lt;type&gt; &lt;FPort&gt; &lt;payload&gt;</p>
+<p>For example:</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5d32daa68b7b1277166946" class="crayon-syntax crayon-theme-dark-terminal-copy crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: -6px; margin-bottom: 12px; margin-left: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="margin-left: -18px;">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5d32daa68b7b1277166946-1">1</div><div class="crayon-num" data-line="crayon-5d32daa68b7b1277166946-2">2</div><div class="crayon-num" data-line="crayon-5d32daa68b7b1277166946-3">3</div><div class="crayon-num" data-line="crayon-5d32daa68b7b1277166946-4">4</div><div class="crayon-num" data-line="crayon-5d32daa68b7b1277166946-5">5</div><div class="crayon-num" data-line="crayon-5d32daa68b7b1277166946-6">6</div><div class="crayon-num" data-line="crayon-5d32daa68b7b1277166946-7">7</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d32daa68b7b1277166946-1"><span class="crayon-r ">mac</span><span class="crayon-h"> </span>tx<span class="crayon-h"> </span>uncnf<span class="crayon-h"> </span>1<span class="crayon-h"> </span>DEAD</div><div class="crayon-line" id="crayon-5d32daa68b7b1277166946-2"><span class="crayon-r ">ok</span></div><div class="crayon-line" id="crayon-5d32daa68b7b1277166946-3"><span class="crayon-r ">mac</span><span class="crayon-h"> </span>tx<span class="crayon-h"> </span>cnf<span class="crayon-h"> </span>1<span class="crayon-h"> </span>BEEF</div><div class="crayon-line" id="crayon-5d32daa68b7b1277166946-4"><span class="crayon-r ">ok</span></div><div class="crayon-line" id="crayon-5d32daa68b7b1277166946-5"><span class="crayon-r ">mac_tx_ok</span></div><div class="crayon-line" id="crayon-5d32daa68b7b1277166946-6"><span class="crayon-r ">mac_rx</span><span class="crayon-h"> </span>1</div><div class="crayon-line" id="crayon-5d32daa68b7b1277166946-7">&nbsp;</div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p></p>
+<h4></h4>
+<h2>Troubleshoot</h2>
+<p>Check if the base station receives the LoRa data over radio from the RN2483.</p>
+<p>This information should be available in the TRACE.log from the Actility LRR running on a base station which is in the range of the RN2483.</p>
+<p>Example of received uplink and downlink data:</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5d32daa68b7b4825917848" class="crayon-syntax crayon-theme-dark-terminal-copy crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: -6px; margin-bottom: 12px; margin-left: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="margin-left: -25px;">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5d32daa68b7b4825917848-1">1</div><div class="crayon-num" data-line="crayon-5d32daa68b7b4825917848-2">2</div><div class="crayon-num" data-line="crayon-5d32daa68b7b4825917848-3">3</div><div class="crayon-num" data-line="crayon-5d32daa68b7b4825917848-4">4</div><div class="crayon-num" data-line="crayon-5d32daa68b7b4825917848-5">5</div><div class="crayon-num" data-line="crayon-5d32daa68b7b4825917848-6">6</div><div class="crayon-num" data-line="crayon-5d32daa68b7b4825917848-7">7</div><div class="crayon-num" data-line="crayon-5d32daa68b7b4825917848-8">8</div><div class="crayon-num" data-line="crayon-5d32daa68b7b4825917848-9">9</div><div class="crayon-num" data-line="crayon-5d32daa68b7b4825917848-10">10</div><div class="crayon-num" data-line="crayon-5d32daa68b7b4825917848-11">11</div><div class="crayon-num" data-line="crayon-5d32daa68b7b4825917848-12">12</div><div class="crayon-num" data-line="crayon-5d32daa68b7b4825917848-13">13</div><div class="crayon-num" data-line="crayon-5d32daa68b7b4825917848-14">14</div><div class="crayon-num" data-line="crayon-5d32daa68b7b4825917848-15">15</div><div class="crayon-num" data-line="crayon-5d32daa68b7b4825917848-16">16</div><div class="crayon-num" data-line="crayon-5d32daa68b7b4825917848-17">17</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d32daa68b7b4825917848-1">09<span class="crayon-o">:</span>21<span class="crayon-o">:</span>53<span class="crayon-sy">.</span>020<span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">(</span>6449<span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">[</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-o">/</span>lgw<span class="crayon-sy">_</span>x8<span class="crayon-sy">.</span>c<span class="crayon-o">:</span>879<span class="crayon-sy">]</span><span class="crayon-h"> </span>PKT<span class="crayon-h"> </span>RECV<span class="crayon-h"> </span>tms<span class="crayon-o">=</span>000019464<span class="crayon-h"> </span>tus<span class="crayon-o">=</span>016606332<span class="crayon-h"> </span>status<span class="crayon-o">=</span>CRCOK<span class="crayon-h"> </span>sz<span class="crayon-o">=</span>15<span class="crayon-h"> </span>freq<span class="crayon-o">=</span>868300000<span class="crayon-h"> </span>delay<span class="crayon-o">=</span>93<span class="crayon-h"> </span>mod<span class="crayon-o">=</span>0x01<span class="crayon-h"> </span>bdw<span class="crayon-o">=</span>BW125<span class="crayon-h"> </span>spf<span class="crayon-o">=</span>SF12<span class="crayon-h"> </span>ecc<span class="crayon-o">=</span>CC4<span class="crayon-o">/</span>5<span class="crayon-h"> </span>channel<span class="crayon-o">=</span>2<span class="crayon-h"> </span>nam<span class="crayon-o">=</span><span class="crayon-s">'LC2'</span><span class="crayon-h"> </span>G1</div><div class="crayon-line" id="crayon-5d32daa68b7b4825917848-2">09<span class="crayon-o">:</span>21<span class="crayon-o">:</span>53<span class="crayon-sy">.</span>020<span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">(</span>6449<span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">[</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-o">/</span>lgw<span class="crayon-sy">_</span>x8<span class="crayon-sy">.</span>c<span class="crayon-o">:</span>897<span class="crayon-sy">]</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp; </span>rf0<span class="crayon-o">:</span><span class="crayon-h"> </span>valid<span class="crayon-o">=</span>1<span class="crayon-h"> </span>finetime<span class="crayon-o">=</span>0<span class="crayon-h"> </span>timestamp<span class="crayon-o">=</span>000000000<span class="crayon-h"> </span>chip<span class="crayon-o">=</span>0<span class="crayon-h"> </span>chan<span class="crayon-o">=</span>6<span class="crayon-h"> </span>snr<span class="crayon-o">=</span>0<span class="crayon-sy">.</span>250000<span class="crayon-h"> </span>rssi<span class="crayon-sy">_</span>chan<span class="crayon-o">=</span><span class="crayon-o">-</span>91<span class="crayon-sy">.</span>000000<span class="crayon-h"> </span>rssi<span class="crayon-sy">_</span>sig<span class="crayon-o">=</span>0<span class="crayon-sy">.</span>000000<span class="crayon-h"> </span>rssi<span class="crayon-sy">_</span>sig<span class="crayon-sy">_</span>std<span class="crayon-o">=</span>0</div><div class="crayon-line" id="crayon-5d32daa68b7b4825917848-3">09<span class="crayon-o">:</span>21<span class="crayon-o">:</span>53<span class="crayon-sy">.</span>020<span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">(</span>6449<span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">[</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-o">/</span>lgw<span class="crayon-sy">_</span>x8<span class="crayon-sy">.</span>c<span class="crayon-o">:</span>897<span class="crayon-sy">]</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp; </span>rf1<span class="crayon-o">:</span><span class="crayon-h"> </span>valid<span class="crayon-o">=</span>1<span class="crayon-h"> </span>finetime<span class="crayon-o">=</span>0<span class="crayon-h"> </span>timestamp<span class="crayon-o">=</span>000000000<span class="crayon-h"> </span>chip<span class="crayon-o">=</span>1<span class="crayon-h"> </span>chan<span class="crayon-o">=</span>6<span class="crayon-h"> </span>snr<span class="crayon-o">=</span><span class="crayon-o">-</span>1<span class="crayon-sy">.</span>250000<span class="crayon-h"> </span>rssi<span class="crayon-sy">_</span>chan<span class="crayon-o">=</span><span class="crayon-o">-</span>87<span class="crayon-sy">.</span>000000<span class="crayon-h"> </span>rssi<span class="crayon-sy">_</span>sig<span class="crayon-o">=</span>0<span class="crayon-sy">.</span>000000<span class="crayon-h"> </span>rssi<span class="crayon-sy">_</span>sig<span class="crayon-sy">_</span>std<span class="crayon-o">=</span>0</div><div class="crayon-line" id="crayon-5d32daa68b7b4825917848-4">09<span class="crayon-o">:</span>21<span class="crayon-o">:</span>53<span class="crayon-sy">.</span>020<span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">(</span>6449<span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">[</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-o">/</span>lgw<span class="crayon-sy">_</span>x8<span class="crayon-sy">.</span>c<span class="crayon-o">:</span>946<span class="crayon-sy">]</span><span class="crayon-h"> </span>PKT<span class="crayon-h"> </span>RECV<span class="crayon-h"> </span>data<span class="crayon-o">=</span><span class="crayon-s">'80554d1b008007000187134d9c22b8'</span><span class="crayon-h"> </span>seq<span class="crayon-o">=</span>7<span class="crayon-h"> </span>devaddr<span class="crayon-o">=</span>001b4d55</div><div class="crayon-line" id="crayon-5d32daa68b7b4825917848-5">09<span class="crayon-o">:</span>21<span class="crayon-o">:</span>53<span class="crayon-sy">.</span>020<span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">(</span>7795<span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">[</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-o">/</span>main<span class="crayon-sy">.</span>c<span class="crayon-o">:</span>2666<span class="crayon-sy">]</span><span class="crayon-h"> </span>packet<span class="crayon-h"> </span>sent<span class="crayon-h"> </span>to<span class="crayon-h"> </span>LRC<span class="crayon-o">=</span>0<span class="crayon-h"> </span>lrrid<span class="crayon-o">=</span>68ba4776<span class="crayon-h"> </span>by<span class="crayon-h"> </span>order<span class="crayon-h"> </span>rssi<span class="crayon-o">=</span><span class="crayon-o">-</span>87<span class="crayon-sy">.</span>000000<span class="crayon-h"> </span>snr<span class="crayon-o">=</span><span class="crayon-o">-</span>1<span class="crayon-sy">.</span>250000</div><div class="crayon-line" id="crayon-5d32daa68b7b4825917848-6">&nbsp;</div><div class="crayon-line" id="crayon-5d32daa68b7b4825917848-7">09<span class="crayon-o">:</span>21<span class="crayon-o">:</span>53<span class="crayon-sy">.</span>262<span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">(</span>7795<span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">[</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-o">/</span>main<span class="crayon-sy">.</span>c<span class="crayon-o">:</span>1887<span class="crayon-sy">]</span><span class="crayon-h"> </span>MACLORA<span class="crayon-h"> </span>SEND<span class="crayon-h"> </span>seq<span class="crayon-o">=</span>6<span class="crayon-h"> </span>ack<span class="crayon-o">=</span>0<span class="crayon-h"> </span>devaddr<span class="crayon-o">=</span>001b4d55<span class="crayon-h"> </span>w<span class="crayon-o">=</span>0<span class="crayon-h"> </span>major<span class="crayon-o">=</span>0<span class="crayon-h"> </span>minor<span class="crayon-o">=</span>3<span class="crayon-h"> </span>len<span class="crayon-o">=</span>30<span class="crayon-h"> </span>tmoa<span class="crayon-o">=</span>1482<span class="crayon-sy">.</span>752000ms<span class="crayon-h"> </span>flg<span class="crayon-o">=</span><span class="crayon-s">'RDY'</span><span class="crayon-h"> </span>deveui<span class="crayon-o">=</span>0004a30b001b4d55<span class="crayon-o">/</span>6</div><div class="crayon-line" id="crayon-5d32daa68b7b4825917848-8">09<span class="crayon-o">:</span>21<span class="crayon-o">:</span>53<span class="crayon-sy">.</span>262<span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">(</span>7795<span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">[</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-o">/</span>main<span class="crayon-sy">.</span>c<span class="crayon-o">:</span>1930<span class="crayon-sy">]</span><span class="crayon-h"> </span>MAC<span class="crayon-h"> </span>SEND<span class="crayon-h"> </span>trip<span class="crayon-o">=</span>402<span class="crayon-h"> </span>avtrip<span class="crayon-o">=</span>0<span class="crayon-h"> </span>dvtrip<span class="crayon-o">=</span>0<span class="crayon-h"> </span>mxtrip<span class="crayon-o">=</span>0<span class="crayon-h"> </span>long<span class="crayon-h"> </span>delay<span class="crayon-h"> </span>postpone<span class="crayon-o">=</span>523<span class="crayon-h"> </span><span class="crayon-k">in</span><span class="crayon-h"> </span>MainQ</div><div class="crayon-line" id="crayon-5d32daa68b7b4825917848-9">09<span class="crayon-o">:</span>21<span class="crayon-o">:</span>53<span class="crayon-sy">.</span>624<span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">(</span>6449<span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">[</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-o">/</span>lgw<span class="crayon-sy">_</span>x8<span class="crayon-sy">.</span>c<span class="crayon-o">:</span>879<span class="crayon-sy">]</span><span class="crayon-h"> </span>PKT<span class="crayon-h"> </span>RECV<span class="crayon-h"> </span>tms<span class="crayon-o">=</span>000020068<span class="crayon-h"> </span>tus<span class="crayon-o">=</span>017217827<span class="crayon-h"> </span>status<span class="crayon-o">=</span>CRCERR<span class="crayon-h"> </span>sz<span class="crayon-o">=</span>73<span class="crayon-h"> </span>freq<span class="crayon-o">=</span>867500000<span class="crayon-h"> </span>delay<span class="crayon-o">=</span>0<span class="crayon-h"> </span>mod<span class="crayon-o">=</span>0x01<span class="crayon-h"> </span>bdw<span class="crayon-o">=</span>BW125<span class="crayon-h"> </span>spf<span class="crayon-o">=</span>SF7<span class="crayon-h"> </span>ecc<span class="crayon-o">=</span>CC4<span class="crayon-o">/</span>6<span class="crayon-h"> </span>channel<span class="crayon-o">=</span>6<span class="crayon-h"> </span>nam<span class="crayon-o">=</span><span class="crayon-s">'LC6'</span><span class="crayon-h"> </span>G2</div><div class="crayon-line" id="crayon-5d32daa68b7b4825917848-10">09<span class="crayon-o">:</span>21<span class="crayon-o">:</span>53<span class="crayon-sy">.</span>624<span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">(</span>6449<span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">[</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-o">/</span>lgw<span class="crayon-sy">_</span>x8<span class="crayon-sy">.</span>c<span class="crayon-o">:</span>897<span class="crayon-sy">]</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp; </span>rf0<span class="crayon-o">:</span><span class="crayon-h"> </span>valid<span class="crayon-o">=</span>0<span class="crayon-h"> </span>finetime<span class="crayon-o">=</span>0<span class="crayon-h"> </span>timestamp<span class="crayon-o">=</span>000000000<span class="crayon-h"> </span>chip<span class="crayon-o">=</span>0<span class="crayon-h"> </span>chan<span class="crayon-o">=</span>0<span class="crayon-h"> </span>snr<span class="crayon-o">=</span>0<span class="crayon-sy">.</span>000000<span class="crayon-h"> </span>rssi<span class="crayon-sy">_</span>chan<span class="crayon-o">=</span>0<span class="crayon-sy">.</span>000000<span class="crayon-h"> </span>rssi<span class="crayon-sy">_</span>sig<span class="crayon-o">=</span>0<span class="crayon-sy">.</span>000000<span class="crayon-h"> </span>rssi<span class="crayon-sy">_</span>sig<span class="crayon-sy">_</span>std<span class="crayon-o">=</span>0</div><div class="crayon-line" id="crayon-5d32daa68b7b4825917848-11">09<span class="crayon-o">:</span>21<span class="crayon-o">:</span>53<span class="crayon-sy">.</span>624<span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">(</span>6449<span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">[</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-o">/</span>lgw<span class="crayon-sy">_</span>x8<span class="crayon-sy">.</span>c<span class="crayon-o">:</span>897<span class="crayon-sy">]</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp; </span>rf1<span class="crayon-o">:</span><span class="crayon-h"> </span>valid<span class="crayon-o">=</span>1<span class="crayon-h"> </span>finetime<span class="crayon-o">=</span>0<span class="crayon-h"> </span>timestamp<span class="crayon-o">=</span>000000000<span class="crayon-h"> </span>chip<span class="crayon-o">=</span>1<span class="crayon-h"> </span>chan<span class="crayon-o">=</span>2<span class="crayon-h"> </span>snr<span class="crayon-o">=</span><span class="crayon-o">-</span>11<span class="crayon-sy">.</span>500000<span class="crayon-h"> </span>rssi<span class="crayon-sy">_</span>chan<span class="crayon-o">=</span><span class="crayon-o">-</span>93<span class="crayon-sy">.</span>000000<span class="crayon-h"> </span>rssi<span class="crayon-sy">_</span>sig<span class="crayon-o">=</span>0<span class="crayon-sy">.</span>000000<span class="crayon-h"> </span>rssi<span class="crayon-sy">_</span>sig<span class="crayon-sy">_</span>std<span class="crayon-o">=</span>0</div><div class="crayon-line" id="crayon-5d32daa68b7b4825917848-12">09<span class="crayon-o">:</span>21<span class="crayon-o">:</span>53<span class="crayon-sy">.</span>785<span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">(</span>7795<span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">[</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-o">/</span>lgw<span class="crayon-sy">_</span>gen<span class="crayon-sy">.</span>c<span class="crayon-o">:</span>946<span class="crayon-sy">]</span><span class="crayon-h"> </span>LGW<span class="crayon-h"> </span>DELAY<span class="crayon-h"> </span>postponed<span class="crayon-o">=</span>402<span class="crayon-o">/</span>925<span class="crayon-h"> </span>rqtdelay<span class="crayon-o">=</span>1000<span class="crayon-h"> </span>delay<span class="crayon-o">=</span>75<span class="crayon-h"> </span>busydur<span class="crayon-o">=</span>0</div><div class="crayon-line" id="crayon-5d32daa68b7b4825917848-13">09<span class="crayon-o">:</span>21<span class="crayon-o">:</span>53<span class="crayon-sy">.</span>861<span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">(</span>6449<span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">[</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-o">/</span>lgw<span class="crayon-sy">_</span>x8<span class="crayon-sy">.</span>c<span class="crayon-o">:</span>1164<span class="crayon-sy">]</span><span class="crayon-h"> </span>PKT<span class="crayon-h"> </span>SEND<span class="crayon-h"> </span>tms<span class="crayon-o">=</span>000020370<span class="crayon-o">/</span>999<span class="crayon-h"> </span>status<span class="crayon-o">=</span>3<span class="crayon-h"> </span>sz<span class="crayon-o">=</span>30<span class="crayon-h"> </span>left<span class="crayon-o">=</span>0<span class="crayon-h"> </span>freq<span class="crayon-o">=</span>868300000<span class="crayon-h"> </span>mod<span class="crayon-o">=</span>0x01<span class="crayon-h"> </span>bdw<span class="crayon-o">=</span>BW125<span class="crayon-h"> </span>spf<span class="crayon-o">=</span>SF12<span class="crayon-h"> </span>ecc<span class="crayon-o">=</span>CC4<span class="crayon-o">/</span>5<span class="crayon-h"> </span>pr<span class="crayon-o">=</span>8<span class="crayon-h"> </span>nocrc<span class="crayon-o">=</span>1<span class="crayon-h"> </span>ivp<span class="crayon-o">=</span>1<span class="crayon-h"> </span>pw<span class="crayon-o">=</span>16</div><div class="crayon-line" id="crayon-5d32daa68b7b4825917848-14">09<span class="crayon-o">:</span>21<span class="crayon-o">:</span>53<span class="crayon-sy">.</span>861<span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">(</span>6449<span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">[</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-o">/</span>lgw<span class="crayon-sy">_</span>x8<span class="crayon-sy">.</span>c<span class="crayon-o">:</span>1187<span class="crayon-sy">]</span><span class="crayon-h"> </span>LGW<span class="crayon-h"> </span>DELAY<span class="crayon-h"> </span>tmao<span class="crayon-h"> </span>request<span class="crayon-o">=</span>1631ms<span class="crayon-h"> </span><span class="crayon-o">+</span><span class="crayon-h"> </span>sched<span class="crayon-o">=</span>75ms</div><div class="crayon-line" id="crayon-5d32daa68b7b4825917848-15">09<span class="crayon-o">:</span>21<span class="crayon-o">:</span>53<span class="crayon-sy">.</span>861<span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">(</span>6449<span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">[</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-o">/</span>lgw<span class="crayon-sy">_</span>x8<span class="crayon-sy">.</span>c<span class="crayon-o">:</span>1230<span class="crayon-sy">]</span><span class="crayon-h"> </span>PKT<span class="crayon-h"> </span>SEND<span class="crayon-h"> </span>async<span class="crayon-h"> </span>dur<span class="crayon-o">=</span>1482<span class="crayon-sy">.</span>751953ms<span class="crayon-h"> </span>diff<span class="crayon-o">=</span>1001ms<span class="crayon-h"> </span>data<span class="crayon-o">=</span><span class="crayon-s">'60554d1b0020060000ad4151a85e3b0807b63aeb03f9&lt;wbr /&gt;3a85261bc4d2ce1c'</span><span class="crayon-h"> </span>seq<span class="crayon-o">=</span>6<span class="crayon-h"> </span>devaddr<span class="crayon-o">=</span>001b4d55</div><div class="crayon-line" id="crayon-5d32daa68b7b4825917848-16">09<span class="crayon-o">:</span>21<span class="crayon-o">:</span>53<span class="crayon-sy">.</span>861<span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">(</span>7795<span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">[</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-o">/</span>main<span class="crayon-sy">.</span>c<span class="crayon-o">:</span>1658<span class="crayon-sy">]</span><span class="crayon-h"> </span>PKT<span class="crayon-h"> </span>SEND<span class="crayon-h"> </span>INDIC<span class="crayon-h"> </span>deveui<span class="crayon-o">=</span>0004a30b001b4d55<span class="crayon-h"> </span>fcnt<span class="crayon-o">=</span>6<span class="crayon-h"> </span>deliv<span class="crayon-o">=</span>1<span class="crayon-h"> </span>c1<span class="crayon-o">=</span>0<span class="crayon-h"> </span>c2<span class="crayon-o">=</span>0<span class="crayon-h"> </span>rtt<span class="crayon-o">=</span>402</div><div class="crayon-line" id="crayon-5d32daa68b7b4825917848-17">09<span class="crayon-o">:</span>21<span class="crayon-o">:</span>53<span class="crayon-sy">.</span>862<span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">(</span>7795<span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">[</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-o">/</span>main<span class="crayon-sy">.</span>c<span class="crayon-o">:</span>2662<span class="crayon-sy">]</span><span class="crayon-h"> </span>indic<span class="crayon-h"> </span>sent<span class="crayon-h"> </span>to<span class="crayon-h"> </span>LRC<span class="crayon-o">=</span>0<span class="crayon-h"> </span>lrrid<span class="crayon-o">=</span>68ba4776<span class="crayon-h"> </span>by<span class="crayon-h"> </span>order</div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0093 seconds] -->
+<p>Once you see that the gateway received the packet and forwarded it to the LRC, we can further troubleshoot using the Wireless logger:</p>
+<p>Data seen in the wLogger for the unconfirmed uplink data:<img class="size-full wp-image-769 alignnone" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/wlogger1.png" alt="wlogger1" width="1157" height="364" srcset="http://jensd.be/wp-content/uploads/wlogger1.png 1157w, http://jensd.be/wp-content/uploads/wlogger1-300x94.png 300w, http://jensd.be/wp-content/uploads/wlogger1-768x242.png 768w, http://jensd.be/wp-content/uploads/wlogger1-1024x322.png 1024w, http://jensd.be/wp-content/uploads/wlogger1-500x157.png 500w" sizes="(max-width: 1157px) 100vw, 1157px"></p>
+<p>Data seen in the wLogger for the confirmed uplink data:<img class="size-full wp-image-770 alignnone" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/wlogger2.png" alt="wlogger2" width="1150" height="336" srcset="http://jensd.be/wp-content/uploads/wlogger2.png 1150w, http://jensd.be/wp-content/uploads/wlogger2-300x88.png 300w, http://jensd.be/wp-content/uploads/wlogger2-768x224.png 768w, http://jensd.be/wp-content/uploads/wlogger2-1024x299.png 1024w, http://jensd.be/wp-content/uploads/wlogger2-500x146.png 500w" sizes="(max-width: 1150px) 100vw, 1150px"></p>
+<p>Data seen for the confirmation downlink frame:<img class="size-full wp-image-771 alignnone" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/wlogger3.png" alt="wlogger3" width="1161" height="407" srcset="http://jensd.be/wp-content/uploads/wlogger3.png 1161w, http://jensd.be/wp-content/uploads/wlogger3-300x105.png 300w, http://jensd.be/wp-content/uploads/wlogger3-768x269.png 768w, http://jensd.be/wp-content/uploads/wlogger3-1024x359.png 1024w, http://jensd.be/wp-content/uploads/wlogger3-500x175.png 500w" sizes="(max-width: 1161px) 100vw, 1161px"></p>
+<h2>Documentation</h2>
+<p>For more information and background on the RN2483:</p>
+<ul>
+<li><a href="http://jensd.be/download/RN2483_PICTail_Users_Guide.pdf">RN2483&nbsp;– User Guide</a></li>
+<li><a href="http://jensd.be/download/RN2483_Data_Sheet.pdf">RN2483 – Datasheet</a></li>
+<li><a href="http://jensd.be/download/RN2483_Command_Reference.pdf">RN2483 Command Reference</a></li>
+</ul>
+
+<!-- Quick Adsense WordPress Plugin: http://quickadsense.com/ -->
+<div style="float: none; margin:10px 0 10px 0; text-align:center;">
+<script async="" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/f(5).txt"></script>
+<!-- lang -->
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-9938673978146131" data-ad-slot="9145919804" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent;"><ins id="aswift_1_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent;"><iframe width="728" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;border:0px;width:728px;height:90px;" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/saved_resource(3).html"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<div style="font-size: 0px; height: 0px; line-height: 0px; margin: 0; padding: 0; clear: both;"></div>			</div><!-- .entry-content -->
+
+	<footer class="entry-meta">
+		This entry was posted in <a href="http://jensd.be/category/lora/actility" rel="category tag">Actility</a>, <a href="http://jensd.be/category/lora" rel="category tag">LoRa</a>, <a href="http://jensd.be/category/network" rel="category tag">Network</a> by <a href="http://jensd.be/author/jensd">jensd</a>. Bookmark the <a href="http://jensd.be/764/network/configure-a-lora-device-based-on-the-microchip-rn2483" title="Permalink to Configure a LoRa device based on the Microchip RN2483" rel="bookmark">permalink</a>.		
+			</footer><!-- .entry-meta -->
+</article><!-- #post-764 -->
+
+						<div id="comments">
+	
+	
+			<h2 id="comments-title">
+			6 thoughts on “<span>Configure a LoRa device based on the Microchip RN2483</span>”		</h2>
+
+		
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-22831">
+		<article id="comment-22831" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/3458267ed3a123c6b804c61f649d6a72.png" srcset="http://0.gravatar.com/avatar/3458267ed3a123c6b804c61f649d6a72?s=136&amp;d=mm&amp;r=g 2x" class="avatar avatar-68 photo" height="68" width="68"><span class="fn">Mirian</span> on <a href="http://jensd.be/764/network/configure-a-lora-device-based-on-the-microchip-rn2483#comment-22831"><time datetime="2017-03-02T14:22:04+00:00">02/03/2017 at 14:22</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hello!</p>
+<p>I connect my RN2483 to my computer but it doesn’t matter which terminal program I use (PuTTy, Hyperterminal, minicom for linux) I have no possibility to write any command…. I just get a black screen when I can’t type. Do you know how I can fix this?</p>
+<p>Thank you,</p>
+<p>Mirian</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="http://jensd.be/764/network/configure-a-lora-device-based-on-the-microchip-rn2483?replytocom=22831#respond" onclick="return addComment.moveForm( &quot;comment-22831&quot;, &quot;22831&quot;, &quot;respond&quot;, &quot;764&quot; )" aria-label="Reply to Mirian">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+	<li class="comment odd alt depth-2" id="li-comment-24506">
+		<article id="comment-24506" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/460089ff41cbe1d31f7374fcd7362a4d.png" srcset="http://1.gravatar.com/avatar/460089ff41cbe1d31f7374fcd7362a4d?s=78&amp;d=mm&amp;r=g 2x" class="avatar avatar-39 photo" height="39" width="39"><span class="fn">honza</span> on <a href="http://jensd.be/764/network/configure-a-lora-device-based-on-the-microchip-rn2483#comment-24506"><time datetime="2017-06-09T10:45:09+00:00">09/06/2017 at 10:45</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>The best is TeraTerm with configuration Setup -&gt; Terminal -&gt; Transmit: CR+LF</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="http://jensd.be/764/network/configure-a-lora-device-based-on-the-microchip-rn2483?replytocom=24506#respond" onclick="return addComment.moveForm( &quot;comment-24506&quot;, &quot;24506&quot;, &quot;respond&quot;, &quot;764&quot; )" aria-label="Reply to honza">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-22833">
+		<article id="comment-22833" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/d2b1d0e8f1e08405a96a4e4bc4bbf03c.png" srcset="http://1.gravatar.com/avatar/d2b1d0e8f1e08405a96a4e4bc4bbf03c?s=136&amp;d=mm&amp;r=g 2x" class="avatar avatar-68 photo" height="68" width="68"><span class="fn">Maria</span> on <a href="http://jensd.be/764/network/configure-a-lora-device-based-on-the-microchip-rn2483#comment-22833"><time datetime="2017-03-02T15:10:43+00:00">02/03/2017 at 15:10</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hi! In my case I can the but I don’t get any response!! when I reset the device it shows the the version but when I type I don’t receive anything. What can I do?</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="http://jensd.be/764/network/configure-a-lora-device-based-on-the-microchip-rn2483?replytocom=22833#respond" onclick="return addComment.moveForm( &quot;comment-22833&quot;, &quot;22833&quot;, &quot;respond&quot;, &quot;764&quot; )" aria-label="Reply to Maria">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-22835">
+		<article id="comment-22835" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/3458267ed3a123c6b804c61f649d6a72.png" srcset="http://0.gravatar.com/avatar/3458267ed3a123c6b804c61f649d6a72?s=136&amp;d=mm&amp;r=g 2x" class="avatar avatar-68 photo" height="68" width="68"><span class="fn">Marcos</span> on <a href="http://jensd.be/764/network/configure-a-lora-device-based-on-the-microchip-rn2483#comment-22835"><time datetime="2017-03-02T16:10:50+00:00">02/03/2017 at 16:10</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>What do you mean with commands need to be terminated with  ? how can I do that?</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="http://jensd.be/764/network/configure-a-lora-device-based-on-the-microchip-rn2483?replytocom=22835#respond" onclick="return addComment.moveForm( &quot;comment-22835&quot;, &quot;22835&quot;, &quot;respond&quot;, &quot;764&quot; )" aria-label="Reply to Marcos">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-jensd bypostauthor even thread-odd thread-alt depth-1" id="li-comment-22849">
+		<article id="comment-22849" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/ee3c0f3450ef086a09bef8c5e7945794.png" srcset="http://2.gravatar.com/avatar/ee3c0f3450ef086a09bef8c5e7945794?s=136&amp;d=mm&amp;r=g 2x" class="avatar avatar-68 photo" height="68" width="68"><span class="fn">jensd</span> on <a href="http://jensd.be/764/network/configure-a-lora-device-based-on-the-microchip-rn2483#comment-22849"><time datetime="2017-03-02T22:48:15+00:00">02/03/2017 at 22:48</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hi Mirian,</p>
+<p>By default, most terminal programs do not have echo feedback enabled, which means they count on the device you communicate with to echo back the characters which you typed. In the case of the RN2483 this doesn’t happen so you need to enable this in your terminal client. (option -e for miniterm)</p>
+<p>Every serial device has requirements on how you terminate (and confirm) an entered command. for the RN2483, in the datasheet it’s defined that, after entering a command, you can execute it by sending <cr><lf> (Carriage Return + Line Feed). How to configure that depends again on your terminal client.</lf></cr></p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="http://jensd.be/764/network/configure-a-lora-device-based-on-the-microchip-rn2483?replytocom=22849#respond" onclick="return addComment.moveForm( &quot;comment-22849&quot;, &quot;22849&quot;, &quot;respond&quot;, &quot;764&quot; )" aria-label="Reply to jensd">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-36745">
+		<article id="comment-36745" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/c0c13efa0082936cd674215ddf686fb3.png" srcset="http://0.gravatar.com/avatar/c0c13efa0082936cd674215ddf686fb3?s=136&amp;d=mm&amp;r=g 2x" class="avatar avatar-68 photo" height="68" width="68"><span class="fn">Bhushan</span> on <a href="http://jensd.be/764/network/configure-a-lora-device-based-on-the-microchip-rn2483#comment-36745"><time datetime="2018-07-16T07:55:44+00:00">16/07/2018 at 07:55</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>I want to transmit data from one RN2483 module and receive to another RN2483 module using MAC protocol and not by using radio point to point transmission commands. Please help. Thankyou</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="http://jensd.be/764/network/configure-a-lora-device-based-on-the-microchip-rn2483?replytocom=36745#respond" onclick="return addComment.moveForm( &quot;comment-36745&quot;, &quot;36745&quot;, &quot;respond&quot;, &quot;764&quot; )" aria-label="Reply to Bhushan">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+		</ol>
+
+		
+		
+	
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://jensd.be/764/network/configure-a-lora-device-based-on-the-microchip-rn2483#respond" style="display:none;">Cancel reply</a></small></h3>			<form action="http://jensd.be/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" required="required"></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" maxlength="100" aria-describedby="email-notes" required="required"></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="text" value="" size="30" maxlength="200"></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment"> <input type="hidden" name="comment_post_ID" value="764" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="cb4e4fee76"></p><p style="display: none;"></p>			<input type="hidden" id="ak_js" name="ak_js" value="1563613863596"></form>
+			</div><!-- #respond -->
+	
+</div><!-- #comments -->
+
+				
+			</div><!-- #content -->
+		</div><!-- #primary -->
+
+
+	</div><!-- #main -->
+
+	<footer id="colophon" role="contentinfo">
+
+			
+
+			<div id="site-generator">
+								<a href="https://wordpress.org/" title="Semantic Personal Publishing Platform">Proudly powered by WordPress</a>
+			</div>
+	</footer><!-- #colophon -->
+</div><iframe src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/portal.html" id="st_gdpr_iframe" title="GDPR Consent Management" style="width: 0px; height: 0px; position: absolute; left: -5000px;"></iframe><!-- #page -->
+
+<script>
+    jQuery(document).ready(function () {
+		jQuery.post('http://jensd.be?ga_action=googleanalytics_get_script', {action: 'googleanalytics_get_script'}, function(response) {
+			var F = new Function ( response );
+			return( F() );
+		});
+    });
+</script><script type="text/javascript" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/comment-reply.min.js.download"></script>
+<script type="text/javascript" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/wp-embed.min.js.download"></script>
+<script async="async" type="text/javascript" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/form.js.download"></script>
+
+
+
+<!-- Dynamic page generated in 0.524 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-07-20 11:11:02 -->
+
+<!-- super cache --><iframe scrolling="no" frameborder="0" allowtransparency="true" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/widget_iframe.940e1bc455d9af25d6ec2f14e90d0d6c.html" title="Twitter settings iframe" style="display: none;"></iframe><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;"><ins id="aswift_2_expand" style="display:inline-table;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;"><ins id="aswift_2_anchor" style="display:block;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;"><iframe frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;border:0px;width:0px;height:0px;" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/saved_resource(4).html"></iframe></ins></ins></ins><iframe id="google_osd_static_frame_7269224752113" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/saved_resource(5).html"></iframe></body><iframe id="google_shimpl" style="display: none;" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/saved_resource(6).html"></iframe><iframe id="google_esf" name="google_esf" src="./Configure a LoRa device based on the Microchip RN2483 _ Jensd&#39;s I_O buffer_files/zrt_lookup.html" data-ad-client="ca-pub-9938673978146131" style="display: none;"></iframe></html>

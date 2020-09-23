@@ -1,0 +1,25 @@
+--cpu Cortex-M3
+"cansend\startup_stm32f103xb.o"
+"cansend\main.o"
+"cansend\stm32f1xx_it.o"
+"cansend\stm32f1xx_hal_msp.o"
+"cansend\stm32f1xx_hal_timebase_tim.o"
+"cansend\stm32f1xx_hal_gpio_ex.o"
+"cansend\stm32f1xx_hal_can.o"
+"cansend\stm32f1xx_hal_tim.o"
+"cansend\stm32f1xx_hal_tim_ex.o"
+"cansend\stm32f1xx_hal.o"
+"cansend\stm32f1xx_hal_rcc.o"
+"cansend\stm32f1xx_hal_rcc_ex.o"
+"cansend\stm32f1xx_hal_gpio.o"
+"cansend\stm32f1xx_hal_dma.o"
+"cansend\stm32f1xx_hal_cortex.o"
+"cansend\stm32f1xx_hal_pwr.o"
+"cansend\stm32f1xx_hal_flash.o"
+"cansend\stm32f1xx_hal_flash_ex.o"
+"cansend\stm32f1xx_hal_exti.o"
+"cansend\system_stm32f1xx.o"
+--library_type=microlib --strict --scatter "cansend\cansend.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "cansend.map" -o cansend\cansend.axf
